@@ -1,11 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>home page</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Isses Tracker|Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="indexStyle/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar bg-base-100 shadow-sm">
+      <div class="w-[90%] mx-auto flex justify-between items-center">
+        <div class="flex justify-between items-center gap-[4px]">
+          <img class="w-[36px] h-[37px]" src="assets/github-logo.png" />
+          <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+        </div>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered w-24 md:w-auto"
+          />
+          <div class="flex-1">
+            <a class="btn btn-ghost text-xl bg-blue-700 text-white"
+              ><i class="fa-solid fa-plus"></i>New Issue</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="bg-slate-50 py-[60px] px-[245px] mx-auto">
+      <section>
+        <div class="bg-[#ffffff] px-[24px] py-[24px] flex gap-[8px]">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn">Open</button>
+          <button class="btn">Closed</button>
+        </div>
+      </section>
+      <section class="mt-[16px]">
+        <div
+          class="bg-white flex justify-between items-center px-[24px] py-[24px]"
+        >
+          <div class="flex justify-between items-center gap-[8px]">
+            <div
+              class="w-[50px] h-[50px] bg-[#ECE4FF] rounded-full flex justify-center items-center"
+            >
+              <img class="w-[32px] h-[32px]" src="assets/Aperture.png" alt="" />
+            </div>
+            <div>
+              <p class="font-semibold text-[20px]">50 Issues</p>
+              <p class="text-[16px] text-[#64748B]">
+                Track and manage your project issues
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center gap-[16px]">
+            <p><span class="text-[#00A96E]">⬤</span> Open</p>
+            <p><span class="text-[#A855F7]">⬤</span> Closed</p>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    <script src="indexJSFile/homePage.js"></script>
+  </body>
 </html>
