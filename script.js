@@ -7,7 +7,7 @@ signupBtn.addEventListener("click", function () {
   const userPass = password.value;
 
   if (userId === "admin" && userPass === "admin123") {
-    window.location.href = "index.html";
+    window.location.href = "home.html";
   } else {
     alert("invalid username or password");
   }

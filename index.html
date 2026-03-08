@@ -3,85 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitHub Isses Tracker|Home</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="indexStyle/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <title>Github Issues Tracker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <nav class="navbar bg-base-100 shadow-sm">
-      <div class="w-[90%] mx-auto flex justify-between items-center">
-        <div class="flex justify-between items-center gap-[4px]">
-          <img class="w-[36px] h-[37px]" src="assets/github-logo.png" />
-          <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
-        </div>
-        <div class="flex gap-2">
-          <input
-            type="text"
-            placeholder="Search"
-            class="input input-bordered w-24 md:w-auto"
-          />
-          <div class="flex-1">
-            <a class="btn btn-ghost text-xl bg-blue-700 text-white"
-              ><i class="fa-solid fa-plus"></i>New Issue</a
-            >
-          </div>
-        </div>
-      </div>
-    </nav>
-    <main class="bg-slate-50 py-[60px] px-[245px] mx-auto">
-      <section>
-        <div class="bg-[#ffffff] px-[24px] py-[24px] flex gap-[8px]">
-          <button id="allBtn" class="btn btn-primary">All</button>
-          <button id="openBtn" class="btn">Open</button>
-          <button id="closeBtn" class="btn">Closed</button>
-        </div>
-      </section>
-      <section class="mt-[16px]">
-        <div
-          class="bg-white flex justify-between items-center px-[24px] py-[24px]"
+  <body class="bg-slate-50 py-[60px] px-[245px]">
+    <section
+      class="w-[520px] min-h-[743px] mx-auto bg-white shadow-xl rounded-md py-[32px] px-[32px]"
+    >
+      <div class="">
+        <img
+          class="mx-auto mb-[24px]"
+          src="assets/github-logo.png"
+          alt="logo-image"
+        />
+        <h1
+          class="text-center font-semibold text-[24px] text-[#1F2937] mb-[4px]"
         >
-          <div class="flex justify-between items-center gap-[8px]">
-            <div
-              class="w-[50px] h-[50px] bg-[#ECE4FF] rounded-full flex justify-center items-center"
-            >
-              <img class="w-[32px] h-[32px]" src="assets/Aperture.png" alt="" />
-            </div>
-            <div>
-              <p class="font-semibold text-[20px]"><span id="issuesCount">50</span>Issues</p>
-              <p class="text-[16px] text-[#64748B]">
-                Track and manage your project issues
-              </p>
-            </div>
-          </div>
-          <div class="flex justify-between items-center gap-[16px]">
-            <p><span class="text-[#00A96E]">⬤</span> Open</p>
-            <p><span class="text-[#A855F7]">⬤</span> Closed</p>
-          </div>
-        </div>
-      </section>
-      <section class="bg-[#FBFBFB] px-[24px] py-[24px]">
-        <div id="gitIssuesContainer" class="grid grid-cols-4 gap-[12px]">
-        </div>
-      </section>
-    </main>
-    <script src="indexJSFile/homePage.js"></script>
+          GitHub Issues Tracker
+        </h1>
+        <p class="text-center text-[#64748B] text-[16px] mb-[24px]">
+          Sign in to manages your issues
+        </p>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <label
+          class="text-[16px] text-[#1F2937] font-medium"
+          for="usernameInput"
+          >Username</label
+        >
+        <input
+          type="text"
+          placeholder="Enter Username"
+          id="usernameInput"
+          class="py-[16px] px-[16px] rounded-xl border border-[#E4E4E7]"
+        />
+        <p class="text-[#4A00FF] text-[14px]">Default: admin</p>
+        <label class="text-[16px] font-medium" for="passwordInput"
+          >Password</label
+        >
+        <input
+          id="passwordInput"
+          type="password"
+          placeholder="Enter Password"
+          class="py-[16px] px-[16px] rounded-xl border border-[#E4E4E7]"
+        />
+        <p class="text-[#4A00FF] text-[14px]">Default: admin123</p>
+        <button
+          id="signupBtn"
+          class="py-[16px] px-[16px] bg-[#4A00FF] text-white rounded-xl text-[16px] font-semibold mt-[24px] hover:bg-[#3407a4] cursor-pointer"
+        >
+          Sign In
+        </button>
+      </div>
+      <div class="mt-[24px] flex items-center justify-center gap-5">
+        <hr class="w-[50%] border border-[#E4E4E7]" />
+        <p class="font-medium text-[#64748B]">OR</p>
+        <hr class="w-[50%] border border-[#E4E4E7]" />
+      </div>
+      <p class="text-center mt-[24px] text-[14px] text-[#64748B]">
+        Demo Credentials:
+      </p>
+      <div
+        class="text-center py-[24px] px-[24px] bg-[#F8FAFC] mt-[8px] rounded-md"
+      >
+        <p>
+          <span class="font-semibold text-[16px]">Username:</span
+          ><span class="text-[16px] text-[#64748B]">admin</span>
+        </p>
+        <p>
+          <span class="font-semibold text-[16px]">Password:</span
+          ><span class="text-[16px] text-[#64748B]">admin123</span>
+        </p>
+      </div>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
