@@ -49,9 +49,9 @@
     <main class="bg-slate-50 py-[60px] px-[245px] mx-auto">
       <section>
         <div class="bg-[#ffffff] px-[24px] py-[24px] flex gap-[8px]">
-          <button class="btn btn-primary">Primary</button>
-          <button class="btn">Open</button>
-          <button class="btn">Closed</button>
+          <button id="allBtn" class="btn btn-primary">All</button>
+          <button id="openBtn" class="btn">Open</button>
+          <button id="closeBtn" class="btn">Closed</button>
         </div>
       </section>
       <section class="mt-[16px]">
@@ -65,7 +65,7 @@
               <img class="w-[32px] h-[32px]" src="assets/Aperture.png" alt="" />
             </div>
             <div>
-              <p class="font-semibold text-[20px]">50 Issues</p>
+              <p class="font-semibold text-[20px]"><span id="issuesCount">50</span>Issues</p>
               <p class="text-[16px] text-[#64748B]">
                 Track and manage your project issues
               </p>
@@ -77,7 +77,10 @@
           </div>
         </div>
       </section>
-      
+      <section class="bg-[#FBFBFB] px-[24px] py-[24px]">
+        <div id="gitIssuesContainer" class="grid grid-cols-4 gap-[12px]">
+        </div>
+      </section>
     </main>
     <script src="indexJSFile/homePage.js"></script>
   </body>
