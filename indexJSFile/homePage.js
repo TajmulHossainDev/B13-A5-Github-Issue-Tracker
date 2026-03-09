@@ -2,6 +2,15 @@ const allBtn = document.getElementById("allBtn");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
 const loadingSpinner = document.getElementById("loadingSpinner");
+const issueDetailsModal = document.getElementById("issue-details-modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalStatus = document.getElementById("modalStatus");
+const modalAuthor = document.getElementById("modalAuthor");
+const modalDate = document.getElementById("modalDate");
+const modalDescription = document.getElementById("modalDescription");
+const modalAssignee = document.getElementById("modalAssignee");
+const modalPriority = document.getElementById("modalPriority");
+const modalLabels = document.getElementById("modalLabels");
 
 const buttons = [allBtn, openBtn, closeBtn];
 
@@ -42,7 +51,7 @@ async function loadGithubIssues() {
 
     renderIssues(allIssues);
     hideLoading();
-  },500);
+  }, 500);
 }
 
 // render cards
@@ -57,7 +66,7 @@ function renderIssues(issues) {
     const borderColor =
       issue.status === "open" ? "border-green-600" : "border-[#A855F7]";
 
-    card.className = `px-[16px] py-[16px] bg-white rounded-md shadow-xl border-t-[4px] ${borderColor}`;
+    card.className = `flex flex-col px-[16px] py-[16px] bg-white rounded-md shadow-xl border-t-[4px] ${borderColor}`;
 
     let labelsHTML = "";
 
@@ -93,17 +102,20 @@ function renderIssues(issues) {
           ${issue.description}
         </p>
 
-        <div class="flex items-center gap-[8px] mb-[16px] min-h-[32px]">
+        <div class="flex items-center gap-[8px] mb-[16px] min-h-[40px]">
           ${labelsHTML}
         </div>
 
-        <div class="border-t-[2px] border-[#E4E4E7] -mx-[16px] px-[16px] pt-[12px] flex justify-between">
+        <div class="border-t-[2px] border-[#E4E4E7] -mx-[16px] px-[16px] pt-[12px] flex justify-between mt-auto">
           <p class="text-[12px] text-[#64748B]">#${issue.id} by ${issue.author}</p>
           <p class="text-[12px] text-[#64748B]">
             ${new Date(issue.createdAt).toLocaleDateString()}
           </p>
         </div>
     `;
+    card.addEventListener("click", () => {
+      openIssueModal(issue);
+    });
 
     gitIssuesContainer.appendChild(card);
   });
@@ -123,5 +135,30 @@ closeBtn.addEventListener("click", () => {
   const closedIssues = allIssues.filter((issue) => issue.status === "closed");
   renderIssues(closedIssues);
 });
+function openIssueModal(issue) {
+  modalTitle.textContent = issue.title;
+  modalAuthor.textContent = issue.author;
+  modalDate.textContent = new Date(issue.createdAt).toLocaleDateString();
+  modalDescription.textContent = issue.description;
+  modalAssignee.textContent = issue.author;
+  modalPriority.textContent = issue.priority;
 
+  modalStatus.textContent = issue.status === "open" ? "Opened" : "Closed";
+
+  // labels
+  modalLabels.innerHTML = "";
+
+  issue.labels.forEach((label) => {
+    const badge = document.createElement("span");
+
+    badge.className =
+      label === "bug" ? "badge badge-error" : "badge badge-warning";
+
+    badge.textContent = label.toUpperCase();
+
+    modalLabels.appendChild(badge);
+  });
+
+  issueDetailsModal.showModal();
+}
 loadGithubIssues();
