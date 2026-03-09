@@ -1,6 +1,7 @@
 const allBtn = document.getElementById("allBtn");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
+const loadingSpinner = document.getElementById("loadingSpinner");
 
 const buttons = [allBtn, openBtn, closeBtn];
 
@@ -8,6 +9,15 @@ const gitIssuesContainer = document.getElementById("gitIssuesContainer");
 const issuesCount = document.getElementById("issuesCount");
 
 let allIssues = [];
+
+function showLoading() {
+  loadingSpinner.classList.remove("hidden");
+  gitIssuesContainer.innerHTML = "";
+}
+
+function hideLoading() {
+  loadingSpinner.classList.add("hidden");
+}
 
 // button active system
 buttons.forEach((btn) => {
@@ -19,15 +29,20 @@ buttons.forEach((btn) => {
 
 // fetch API
 async function loadGithubIssues() {
-  const res = await fetch(
-    "https://phi-lab-server.vercel.app/api/v1/lab/issues"
-  );
+  showLoading();
 
-  const data = await res.json();
+  setTimeout(async () => {
+    const res = await fetch(
+      "https://phi-lab-server.vercel.app/api/v1/lab/issues",
+    );
 
-  allIssues = data.data;
+    const data = await res.json();
 
-  renderIssues(allIssues);
+    allIssues = data.data;
+
+    renderIssues(allIssues);
+    hideLoading();
+  },500);
 }
 
 // render cards
@@ -61,7 +76,6 @@ function renderIssues(issues) {
       </div>
       `;
     }
-    
 
     card.innerHTML = `
         <div class="flex justify-between items-center mb-[12px]">

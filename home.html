@@ -65,7 +65,9 @@
               <img class="w-[32px] h-[32px]" src="assets/Aperture.png" alt="" />
             </div>
             <div>
-              <p class="font-semibold text-[20px]"><span id="issuesCount">50</span>Issues</p>
+              <p class="font-semibold text-[20px]">
+                <span id="issuesCount">50</span>Issues
+              </p>
               <p class="text-[16px] text-[#64748B]">
                 Track and manage your project issues
               </p>
@@ -78,9 +80,15 @@
         </div>
       </section>
       <section class="bg-[#FBFBFB] px-[24px] py-[24px]">
-        <div id="gitIssuesContainer" class="grid grid-cols-4 gap-[12px]">
-        </div>
+         <div
+        id="loadingSpinner"
+        class="h-[60vh] flex justify-center items-center hidden"
+      >
+        <span class="loading loading-dots loading-xl"></span>
+      </div>
+        <div id="gitIssuesContainer" class="grid grid-cols-4 gap-[12px]"></div>
       </section>
+     
     </main>
     <script src="indexJSFile/homePage.js"></script>
   </body>
